@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/vmware/ansible-coreos-bootstrap.svg?branch=master)](https://travis-ci.org/vmware/ansible-coreos-bootstrap)
+[![Build Status](https://travis-ci.org/AdrianGPrado/ansible-coreos-bootstrap.svg?branch=master)](https://travis-ci.org/AdrianGPrado/ansible-coreos-bootstrap.svg?branch=master)
 
 # coreos-bootstrap
 
@@ -9,7 +9,7 @@ Current version: 0.5.2
 # install
 
 ```
-ansible-galaxy install sigma.coreos-bootstrap
+ansible-galaxy install AdrianGPrado.coreos-bootstrap
 ```
 
 # Configure your project
@@ -35,7 +35,7 @@ Now you can simply add the following to your playbook file and include it in you
 - hosts: coreos
   gather_facts: False
   roles:
-    - sigma.coreos-bootstrap
+    - AdrianGPrado.coreos-bootstrap
 ```
 
 Make sure that `gather_facts` is set to false, otherwise ansible will try to first gather system facts using python which is not yet installed!
