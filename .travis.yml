@@ -12,6 +12,9 @@ addons:
     packages:
     - python-pip
 
+services:
+  - docker
+
 env:
   global:
     - ANSIBLE_CONFIG=tests/test.cfg
