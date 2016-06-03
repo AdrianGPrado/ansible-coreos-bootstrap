@@ -2,6 +2,16 @@
 language: python
 python: "2.7"
 
+# Use the new container infrastructure
+sudo: false
+
+
+# Install ansible
+addons:
+  apt:
+    packages:
+    - python-pip
+
 env:
   global:
     - ANSIBLE_CONFIG=tests/test.cfg
@@ -9,12 +19,15 @@ env:
     - TEST=default
     - TEST=opt
 
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y curl libncurses5
-
 install:
+  # Install ansible
   - pip install ansible
+
+  # Check ansible version
+  - ansible --version
+
+  # Create ansible.cfg with correct roles_path
+  - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
   # syntax check
