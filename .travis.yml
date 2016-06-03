@@ -36,10 +36,10 @@ script:
   # syntax check
   - "ansible-playbook -i tests/$TEST/inventory tests/$TEST/test.yml --syntax-check"
   # run playbook
-  - "ansible-playbook -i tests/$TEST/inventory tests/$TEST/test.yml --sudo"
+  - "ansible-playbook -i tests/$TEST/inventory tests/$TEST/test.yml --connection=local --sudo"
   # Run the playbook again, checking idempotence.
   - >
-    ansible-playbook -i tests/$TEST/inventory tests/$TEST/test.yml --sudo
+    ansible-playbook -i tests/$TEST/inventory tests/$TEST/test.yml --connection=local --sudo
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
